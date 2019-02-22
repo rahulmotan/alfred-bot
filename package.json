@@ -15,5 +15,19 @@
   "bugs": {
     "url": "https://github.com/rahulmotan/alfred-bot/issues"
   },
-  "homepage": "https://github.com/rahulmotan/alfred-bot#readme"
+  "homepage": "https://github.com/rahulmotan/alfred-bot#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "config": "^3.0.1",
+    "csv-write-stream": "^2.0.0",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "express": "^4.16.4",
+    "mkdirp": "^0.5.1",
+    "morgan": "^1.9.1",
+    "tracer": "^0.9.8"
+  }
 }
