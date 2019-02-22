@@ -1,0 +1,19 @@
+{
+  "name": "alfred-bot",
+  "version": "1.0.0",
+  "description": "This is a slack app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahulmotan/alfred-bot.git"
+  },
+  "author": "Rahul Motan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahulmotan/alfred-bot/issues"
+  },
+  "homepage": "https://github.com/rahulmotan/alfred-bot#readme"
+}
