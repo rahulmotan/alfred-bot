@@ -5,7 +5,7 @@ import express from 'express';
 import http from 'http';
 
 import bootstrap from './bootstrap';
-import { log, normalizePort } from './utils';
+import {log, normalizePort } from './utils';
 
 const app = express();
 app.start = async () => {
