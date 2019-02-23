@@ -1,46 +1,48 @@
-import express from 'express';
+import { WebClient } from '@slack/client';
+import config from 'config';
+import eventHandler from './events';
 
-import { log } from './utils';
 
-const router = new express.Router();
+const slackConfig = config.get('slack');
+const token = slackConfig.get('alfredBot')
+  .get('botToken');
 
-router.post('/api/command/test', async (req, res) => {
-  try {
-    const slackReqObj = req.body;
-    let reportsList = [{
-      text: 'Report 1',
-      value: 1
-    }, {
-      text: 'Report 2',
-      value: 2
-    }];
+console.log(token);
 
-    console.log(req.body);
+const web = new WebClient(token);
 
-    const response = {
-      response_type: 'in_channel',
-      channel: slackReqObj.channel_id,
-      text: 'Hello :slightly_smiling_face:',
-      attachments: [{
-        text: 'What report would you like to get?',
-        fallback: 'What report would you like to get?',
-        color: '#2c963f',
-        attachment_type: 'default',
-        callback_id: 'report_selection',
-        actions: [{
-          name: 'reports_select_menu',
-          text: 'Choose a report...',
-          type: 'select',
-          options: reportsList,
-        }],
-      }],
-    };
-    return res.json(response);
-  } catch (err) {
-    log.error(err);
-    return res.status(500)
-      .send('Something blew up. We\'re looking into it.');
+module.exports = (app) => {
+
+  app.post('/api/command/test', createRequest);
+  app.post('/api/events', eventHandler);
+
+};
+
+const createRequest = async (req, res) => {
+
+  const { channel_id } = req.body;
+  const { user_id } = req.body;
+  const {channel_name} = req.body;
+  let bot_res = {
+
+  };
+  if(channel_name === 'directmessage'){
+
+  }else{
+
   }
-});
+  console.log(req.body);
+  console.log(channel_id);
 
-export default router;
+
+  await web.chat.postMessage({
+    channel: user_id,
+    text: 'I am listening.',
+    as_user: true,
+    token: token
+  });
+  res.sendStatus(200);
+};
+
+
+

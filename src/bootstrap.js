@@ -8,7 +8,9 @@ export default function (app) {
     app.use(bodyParser.urlencoded({ extended: true }));
 
     // Routes
-    app.use(router);
+    //app.use(router);
+
+    router(app);
 
     // 404
     app.use((req, res) => {
