@@ -3,7 +3,7 @@ import 'babel-polyfill';
 import config from 'config';
 import express from 'express';
 import http from 'http';
-
+import * as ngrok from 'ngrok';
 import bootstrap from './bootstrap';
 import {log, normalizePort } from './utils';
 

@@ -4,7 +4,7 @@ import { log } from './utils';
 
 const router = new express.Router();
 
-router.post('/api/command/report', async (req, res) => {
+router.post('/api/command/test', async (req, res) => {
   try {
     const slackReqObj = req.body;
     let reportsList = [{
@@ -14,6 +14,8 @@ router.post('/api/command/report', async (req, res) => {
       text: 'Report 2',
       value: 2
     }];
+
+    console.log(req.body);
 
     const response = {
       response_type: 'in_channel',
